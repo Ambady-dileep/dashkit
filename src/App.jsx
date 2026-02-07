@@ -1,15 +1,5 @@
-import { useState } from 'react'
+import Dashboard from "./pages/Dashboard";
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <button onClick={() => setCount((count) => count + 1)}>
-        count is {count}
-      </button>
-    </>
-  )
+export default function App() {
+  return <Dashboard />;
 }
-
-export default App
