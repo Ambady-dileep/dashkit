@@ -1,14 +1,22 @@
-import { useState } from 'react';
+import { useState, useEffect } from "react";
 import { useAuth } from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
-  const { login } = useAuth()
+  const { login, user } = useAuth()
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault()
     login(email)
   }
+
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
 
   return (
     <form onSubmit={handleSubmit}>
