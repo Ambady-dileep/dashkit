@@ -4,12 +4,15 @@ export const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
+  const [authLoading, setAuthLoading] = useState(true);
 
   useEffect(()=>{
     const storedUser = localStorage.getItem('user')
+
     if (storedUser){
       setUser(JSON.parse(storedUser))
     }
+    setAuthLoading(false)
   },[])
 
   const login = (email) => {
@@ -27,6 +30,7 @@ export function AuthProvider({ children }) {
     user,
     login,
     logout,
+    authLoading,
   };
 
   return (
