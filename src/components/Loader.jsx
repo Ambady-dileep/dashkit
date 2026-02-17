@@ -4,4 +4,4 @@ export default function Loader() {
       <span className="spinner" />
     </div>
   );
-}
+} 
