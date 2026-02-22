@@ -1,6 +1,6 @@
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
-import Loader from "./Loader";
+import Loader from './Loader';
 
 export default function PrivateRoute({ children }) {
   
