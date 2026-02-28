@@ -15,10 +15,16 @@ export function AuthProvider({ children }) {
     setAuthLoading(false)
   },[])
 
-  const login = (email) => {
-    const userData = { email }
-    setUser(userData);
-    localStorage.setItem("user",JSON.stringify(userData))
+  const login = async (email) => {
+    setAuthLoading(true)
+    try {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      const userData = { email };
+      setUser(userData)
+      localStorage.setItem("user", JSON.stringify(userData));
+    } finally {
+      setAuthLoading(false);
+    }
   };
      
   const logout = () => {
